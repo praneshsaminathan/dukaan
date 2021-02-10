@@ -76,7 +76,7 @@ class User(BaseModel, AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     def __str__(self):
-        return f'{str(self.phone)} - {self.role.name}'
+        return f'{str(self.phone)} - {self.role}'
 
     def save(self, *args, **kwargs):
 
