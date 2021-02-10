@@ -41,14 +41,13 @@ class LoginSerializer(serializers.Serializer):
         else:
             user = user.first()
 
-        if role:
-            if not user.role:
-                role_obj = Role.objects.filter(name=role)
-                if not role_obj:
-                    raise serializers.ValidationError({'role': _('Invalid Role')})
-                else:
-                    user.role = role_obj.first()
-                    user.save()
+        if not user.role:
+            role_obj = Role.objects.filter(name=role)
+            if not role_obj:
+                raise serializers.ValidationError({'role': _('Invalid Role')})
+            else:
+                user.role = role_obj.first()
+                user.save()
 
         if user.otp != otp:
             raise serializers.ValidationError({'otp': _('Invalid OTP')})
