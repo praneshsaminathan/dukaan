@@ -1,6 +1,7 @@
 from django.utils.translation import ugettext_lazy as _
 from rest_framework import serializers
 
+from accounts.serializers import StoreSerializer
 from ecomm.models import Product, Category, Cart, Order
 
 
@@ -12,7 +13,7 @@ class CategorySerializer(serializers.ModelSerializer):
 
 
 class ProductSerializer(serializers.ModelSerializer):
-
+    store = StoreSerializer(read_only=True)
     category = serializers.CharField(write_only=True)
 
     class Meta:
@@ -92,3 +93,4 @@ class CreateOrderSerializer(serializers.Serializer):
         if not Cart.objects.filter(id=cart):
             raise serializers.ValidationError({'cart': _('Invalid Cart')})
         return cart
+

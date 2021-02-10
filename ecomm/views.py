@@ -7,6 +7,7 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
 
+from accounts.models import Store
 from accounts.views import (
     ViewsetPermissionMixin
 )
@@ -66,3 +67,19 @@ class OrderViewSet(ViewsetPermissionMixin, CreateModelMixin, RetrieveModelMixin,
         order_obj = Order.objects.create(line_items=cart_info.line_items, created_by=request.user)
         data = {"line_items": order_obj.line_items, "id": str(order_obj.id)}
         return Response(data, status=status.HTTP_201_CREATED)
+
+
+class StoreInfoAPIView(APIView):
+    permission_classes = (AllowAny,)
+
+    def get(self, request, slug, *args, **kwargs):
+        store_obj = Store.objects.filter(slug=slug)
+        if store_obj:
+            products = store_obj.first().products.all()
+            if products:
+                serializer = ProductSerializer(store_obj.products.all(), many=True)
+                return Response(serializer.data, status=status.HTTP_200_OK)
+            else:
+                return Response(status=status.HTTP_200_OK)
+        else:
+            return Response("Invalid Store", status=status.HTTP_404_NOT_FOUND)

@@ -119,3 +119,8 @@ output:
      }
 URL: **http://127.0.0.1:8000/api/v1/orders/--orderid--**
 Type: UPDATE, RETREIVE - Only object owner can modify
+
+URL: **http://127.0.0.1:8000/api/v1/store/--store_slug--**
+Type: GET - AllowAny
+Exp: Slug name matched store info will return.
+
