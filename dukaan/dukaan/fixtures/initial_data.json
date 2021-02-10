@@ -1,0 +1,49 @@
+[
+
+  {
+    "model": "accounts.role",
+    "pk": "1bc280a9-3bc1-4e39-9837-674682089a33",
+    "fields": {
+      "created_on": "2020-02-26T13:50:55.221Z",
+      "modified_on": "2020-02-26T13:50:55.221Z",
+      "name": "Owner"
+    }
+  },
+  {
+    "model": "accounts.role",
+    "pk": "0bb3fc34-1e32-4b46-83b5-af16f4e6450e",
+    "fields": {
+      "created_on": "2020-02-26T13:50:55.221Z",
+      "modified_on": "2020-02-26T13:50:55.221Z",
+      "name": "Administrator"
+    }
+  },
+  {
+    "model": "accounts.role",
+    "pk": "ce80048d-7158-425b-8713-9e9c335aaea0",
+    "fields": {
+      "created_on": "2020-02-26T13:50:55.221Z",
+      "modified_on": "2020-02-26T13:50:55.221Z",
+      "name": "Buyer",
+      "description": "Buyer"
+    }
+  },
+  {
+    "model": "accounts.role",
+    "pk": "5fe435fb-9abe-4284-b7e2-e45a5b6d0145",
+    "fields": {
+      "created_on": "2020-02-26T13:50:55.221Z",
+      "modified_on": "2020-02-26T13:50:55.221Z",
+      "name": "Seller"
+    }
+  },
+  {
+    "model": "accounts.role",
+    "pk": "ee777da0-cab1-4528-ad03-05496bb9e027",
+    "fields": {
+      "created_on": "2020-02-26T13:50:55.221Z",
+      "modified_on": "2020-02-26T13:50:55.221Z",
+      "name": "View Only"
+    }
+  }
+]
