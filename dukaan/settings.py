@@ -17,7 +17,6 @@ import django_heroku
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-django_heroku.settings(locals())
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
@@ -167,3 +166,6 @@ PASSWORD_RESET_TIMEOUT_DAYS = 1
 SESSION_COOKIE_AGE = 60 * 60 * 24 * 30  # 30 Days
 DATA_UPLOAD_MAX_MEMORY_SIZE = 100*1024*1024  # 100 MB
 DATA_UPLOAD_MAX_NUMBER_FIELDS = 10000
+
+
+django_heroku.settings(locals())
